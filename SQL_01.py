@@ -13,13 +13,9 @@ def vypsat(cursor):
 def pridat(cursor, conn):
     while True:
         name = input("Jméno: ")
-        while True:
-            age = int(input("Věk: "))
-            if age <= 0:
-                print("Špatný věk")
-            else:
-                break
+        age = int(input("Věk: "))
         grade = input("Známka: ")
+        
         cursor.execute("INSERT INTO students (name, age, grade) VALUES (?, ?, ?)", (name, age, grade))
         conn.commit()
         dalsi = input("Přidat další? (A/N): ")
